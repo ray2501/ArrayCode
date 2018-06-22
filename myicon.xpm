@@ -1,0 +1,31 @@
+/* XPM */
+static const char *myicon_xpm[] = {
+/* width height num_colors chars_per_pixel */
+"    16    16        8            1",
+/* colors */
+"` c #070812",
+". c #abb1b1",
+"# c #dadbe4",
+"a c #c1c4d7",
+"b c #0f0872",
+"c c #f6f7fb",
+"d c #b5b0e7",
+"e c #1f177c",
+/* pixels */
+"#a````````````##",
+"a`a.aaa.a.daaa`a",
+"`ada`#cadadddda`",
+"`aaecccbeebebcc`",
+"`.ecccccc#cccc#`",
+"`acccbacccccccc`",
+"`acc`ce`ebeebbc`",
+"`aabcccccc#bc#c`",
+"`abcb#ccac#bc#c`",
+"`.cce#caacabc#c`",
+"`accbccaaddeccc`",
+"`.caecc.adabccc`",
+"`a..bc#aaadbcca`",
+"`aaaecca.ebecca`",
+"#`.acccaaccccc`a",
+"#a````````````#a"
+};

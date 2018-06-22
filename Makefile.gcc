@@ -1,0 +1,37 @@
+CPP  = g++.exe
+WINDRES = windres.exe
+RES  = wx.res
+OBJ  = app.o mainFrame.o setdlg.o aboutDialog.o tool.o $(RES)
+LIBS =  -L"c:/MinGW/lib" -L"C:/tools/wxWidgets/lib/gcc_lib" -L"./" -mwindows -lwxmsw31u_core -lwxbase31u -lwxpng -lwxzlib -lkernel32 -luser32 -lgdi32 -lcomdlg32 -lwinspool -lwinmm -lshell32 -lcomctl32 -lole32 -loleaut32 -luuid -lrpcrt4 -ladvapi32 -lwsock32 -lwininet -limm32 -lVersion -lShlwapi
+CXXINCS = -I"c:/MinGW/include" -I"C:/tools/wxWidgets/lib/gcc_lib/mswu"  -I"c:/tools/wxWidgets/include" -I"./"
+CXXFLAGS = $(CXXINCS) -fno-pcc-struct-return -fstrict-aliasing -Wall -DNDEBUG -D__WXMSW__ -D__GNUWIN32__ -D_UNICODE
+BIN  = arraycode.exe
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	del $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(OBJ) -o $(BIN) $(LIBS)
+	strip $(BIN)
+
+app.o: app.cpp
+	$(CPP) -c app.cpp -o app.o $(CXXFLAGS)
+
+mainFrame.o: mainFrame.cpp
+	$(CPP) -c mainFrame.cpp -o mainFrame.o $(CXXFLAGS)
+
+setdlg.o: setdlg.cpp
+	$(CPP) -c setdlg.cpp -o setdlg.o $(CXXFLAGS)
+	
+aboutDialog.o: aboutDialog.cpp
+	$(CPP) -c aboutDialog.cpp -o aboutDialog.o $(CXXFLAGS)	
+
+tool.o: tool.cpp
+	$(CPP) -c tool.cpp -o tool.o $(CXXFLAGS)
+
+wx.res: wx.rc 
+	$(WINDRES) -i wx.rc --input-format=rc -o wx.res -O coff  --include-dir c:/tools/wxWidgets/include

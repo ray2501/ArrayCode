@@ -1,0 +1,5 @@
+Create message:
+xgettext -C -n -k_ --from-code UTF-8 -o arraycode.po app.cpp mainFrame.cpp setdlg.cpp aboutDialog.cpp
+
+Create the po file:
+msgfmt -o arraycode.mo arraycode.po
